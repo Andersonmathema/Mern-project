@@ -1,10 +1,13 @@
 const express = require("express");
-const userRoute = require("./src/routes/user.route");
 const app = express();
 
-app.use("/soma", userRoute);
+const userRoute = require("./src/routes/user.route");
 
-app.listen(3000);
+const port = 3000;
+app.use(express.json());
+app.use("/user", userRoute);
+
+app.listen(3000, () => console.log(`Servidor rodando na porta ${port}`));
 // Rota
 //Method HTTP - CRUD(Create, Read, Update, Delete)
 //GET - pega info
